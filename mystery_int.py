@@ -12,16 +12,27 @@ def total_sum(myster_int):
 # print(total_sum(mystery_int))
 
 # BEATS PER MEASURE
+# def total_beats(beats, measure):
+#     last_beats = []
+#     for num in range(1, beats + 1):
+#         if num > 1:
+#             last_beats.append(num)
+#         print(num)
+#     for num in range(2, measure + 1):
+#         print(num)
+#         for beat in range(len(last_beats)):
+#             print(last_beats[beat])
+
+# beats = 4
+# measure = 5
+# print(total_beats(beats, measure))
+
+
 def total_beats(beats, measure):
-    last_beats = []
-    for num in range(1, beats + 1):
-        if num > 1:
-            last_beats.append(num)
+    for num in range(1, measure + 1):
         print(num)
-    for num in range(2, measure + 1):
-        print(num)
-        for beat in range(len(last_beats)):
-            print(last_beats[beat])
+        for num in range(2, beats + 1):
+            print(num)
 
 beats = 4
 measure = 5
