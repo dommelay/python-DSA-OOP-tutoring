@@ -14,7 +14,6 @@ mystery_int = 3
 
 
 
-
 # BEATS PER MEASURE
 def total_beats(beats, measure):
     for num in range(1, measure + 1):
