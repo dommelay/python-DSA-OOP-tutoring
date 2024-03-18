@@ -9,13 +9,13 @@ class Item:
     # purchase an item
     def purchase(self):
         self.purchased = True
-        print(f'{self.name} purchased for {self.cost}')
+        # print(f'{self.name} purchased for ${self.cost}')
     # display an item
     def display_item(self):
         print(f'Item: {self.name}')
         print(f'- Cost: ${self.cost}')
-        print(f'- Purchased: {self.purchased}')
-        
+        print(f'- Purchased: {self.purchased}')     
+
 class ShoppingList:
     # create an instance (object) of the ShoppingList class
     def __init__(self, date, items):
@@ -37,24 +37,36 @@ class ShoppingList:
        
 
 # CREATE TWO ITEMS
-        
+item1 = Item('Milk', 5, False)
+item2 = Item('Bread', 6, True)
+
 # CREATE A SHOPPING LIST INCLUDING THE TWO ITEMS
-        
+listA = ShoppingList('01/01/2024', [item1, item2])
+
 # PRINT THE SHOPPING LIST
-        
+# listA.print_list()
+
 # PURCHASE ONE ITEM AND PRINT THE LIST
-        
+item1.purchase()
+# listA.print_list()
+
 # CREATE A THIRD ITEM
-        
+item3 = Item('Apple', 2, False)
+
 # DISPLAY THE THIRD ITEM
-        
+# item3.display_item()
+
 # ADD THE THIRD ITEM TO THE SHOPPING LIST
-        
+listA.add_item(item3)
+
 # PRINT THE SHOPPING LIST
-        
+# listA.print_list()
+
 # REMOVE THE FIRST ITEM FROM THE SHOPPING LIST
-        
+listA.remove_item(item1)
+
 # PRINT THE SHOPPING LIST
+listA.print_list()
 
 
 
