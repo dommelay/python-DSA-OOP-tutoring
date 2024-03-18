@@ -1,0 +1,1 @@
+# personal assistant is shopping and adding expenses for each item
