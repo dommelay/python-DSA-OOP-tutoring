@@ -39,5 +39,21 @@ def product_code_check(single_string):
     else: 
         print(False)
 
-product_code_check(single_string)
+# product_code_check(single_string)
 
+#The Collatz Conjecture is a famous sequence in mathematics proposed by Lothar Collatz. It proceeds as follows: Start with any number. If the number is even, divide it by 2. If the number is odd, triple it and add one. Repeat. Eventually, no matter what number you begin with, this sequence will converge on 1 (and if you continue repeating it, you'll repeat 1-4-2 infinitely).
+
+def collatz(integer):
+    total_turns = 0
+
+    while integer != 1:
+        if integer % 2 == 0:
+            integer = integer // 2
+            total_turns += 1
+        else:
+            integer = integer * 3 + 1
+            total_turns += 1
+    
+    print(total_turns)
+
+collatz(25)
