@@ -1,3 +1,4 @@
+
 class Device:
     def __init__(self, brand, year, model):
         self.brand = brand
@@ -5,7 +6,6 @@ class Device:
         self.model = model
     def display_info(self):
         print(f'- Device: {self.brand} {self.model}, {self.year}')
-
 class Phone(Device):
     def __init__(self, brand, year, model, carrier):
         super().__init__(brand, year, model)
@@ -30,7 +30,6 @@ class Laptop(Device):
         print(f'Using {amount}GB of storage!')
         self.storage -= amount
         print(f'Your {self.model} has {self.storage}GB left')
-
 class Headphones(Device):
     def __init__(self, brand, year, model, songs):
         super().__init__(brand, year, model)
@@ -45,7 +44,7 @@ class Headphones(Device):
             print(f'- {song}')
 
 
-# CREATE TWO DEVICES - LAPTOP AND PHONE
+# CREATE THREE DEVICES - LAPTOP, PHONE AND HEADPHONES
 
 # DISPLAY INFORMATION ABOUT YOUR LAPTOP
         
