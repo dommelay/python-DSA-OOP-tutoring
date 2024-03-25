@@ -90,3 +90,29 @@ def check_date(month, day, is_leap_year=False):
 # check_date("January", 31)
 # check_date("February", 29, is_leap_year = True)
 # check_date("Techtember", 15, is_leap_year = True)
+
+#Write a function called get_numerals. get_numerals should accept one parameter, a string. It should return a string containing only the numerals from the original string: no letters, punctuation marks, or spaces. Remember, numerals have ordinal numbers between 48 ("0") and 57 ("9"). You may use the ord() function to get a letter's ordinal number.
+#Your function should be able to handle strings with no numerals (return an empty string) and strings with all numerals (return the original string). You may assume we'll only use regular characters (no emojis, formatting characters, etc.).
+
+def get_numerals(s):
+    numerals = ''
+    for char in s:
+        if '0' <= char <= '9':
+            numerals += char
+    print(numerals)
+
+def get_numerals_ord(s):
+    numerals = ''
+    for char in s:
+        if 48 <= ord(char) <= 57:
+            numerals += char
+    print(numerals)
+
+s = 'CS1301'
+# s = 'Georgia Institute of Technology'
+# s = '8675309'
+
+# get_numerals(s)
+# get_numerals_ord(s)
+
+# print(ord('A'))
