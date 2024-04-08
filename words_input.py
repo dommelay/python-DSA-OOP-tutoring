@@ -1,6 +1,12 @@
-#Write a function called average_word_length that takes as input a string called my_string, and returns as output the average length of the words in the string.
-# The only punctuation marks you need to handle are these: . , ! ?
-my_string = 4
+# Write a function called average_word_length that takes as input a string called my_string, and returns as output the average length of the words in the string.
+
+# You should account for consecutive spaces. A string like "Hi   Lucy" is two words with an average length of 3.0 characters.
+# - You should not assume the string starts with a letter. A string like "  David" has one word with an average length of 5.0 characters.
+# - You should not count punctuation marks toward the length of a word. A string like "Hi, Lucy" has two words with an average length of 3.0 characters: the , after "Hi" does not count as a character in the word. The only punctuation marks you need to handle are these: . , ! ?
+# - You may assume the only characters in the string are
+#   letters, the punctuation marks listed above, and spaces.
+# - If my_string is not a string, you should instead return the string, "Not a string".
+# - If there are no words in my_string, you should instead return the string, "No words". This could happen for strings like "" (an empty string) and ".,!?" (a string of only punctuation marks). You may assume that any of these punctuation marks will always be followed by at least one space.
 
 def average_word_length(my_string):
 
@@ -10,7 +16,14 @@ def average_word_length(my_string):
     
     excluded_chars = [' ', '.', '?', '!', ',']
     words = my_string.split()
-    accepted_words = [''.join(c for c in word if c not in excluded_chars) for word in words if any(c not in excluded_chars for c in word)]
+
+    # accepted_words = [''.join(c for c in word if c not in excluded_chars) for word in words if any(c not in excluded_chars for c in word)]
+
+    accepted_words = []
+    for word in words:
+        if any(c not in excluded_chars for c in word):
+            cleaned_word = ''.join(c for c in word if c not in excluded_chars)
+            accepted_words.append(cleaned_word)
 
     if accepted_words:
         total_length = sum(len(word) for word in accepted_words)
@@ -18,27 +31,36 @@ def average_word_length(my_string):
         print(average_length)
     else:
         print('No words')
-    
+
+my_string = True   
+# my_string = 'Hi, Lucy' 
+# my_string = '?!?!?! ... !'
 # average_word_length(my_string)
 
-#Write a function called product_code_check. product_code_check. Should take as input a single string. It should return a boolean:
-#True if the product code is a valid code according to the rules below, False if it is not.
-#A string is a valid product code if it meets ALL the following conditions:
+#Write a function called product_code_check. product_code_check. Should take as input a single string. It should return a boolean: True if the product code is a valid code according to the rules below, False if it is not.
+# A string is a valid product code if it meets ALL the following conditions:
 # - It must be at least 8 characters long.
 # - It must contain at least one character from each of the following categories: capital letters, lower-case letters, and numbers.
 # - It may not contain any punctuation marks, spaces, or other characters.
-single_string = 'g00dlONGproductCODE'
 
 def product_code_check(single_string):
+    valid_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    filtered_string = ''.join(c for c in single_string if c in valid_chars)
+
     has_lowercase = any(c.islower() for c in single_string)
     has_uppercase = any(c.isupper() for c in single_string)
     has_integer = any(c.isdigit() for c in single_string)
 
-    if has_lowercase and has_uppercase and has_integer and len(single_string) >= 8:
+    if has_lowercase and has_uppercase and has_integer and filtered_string == single_string and len(single_string) >= 8:
         print(True)
     else: 
         print(False)
 
+# single_string = 'g00dlONGproductCODE'
+# single_string = 'fRV53FwSXX663cCd'
+# single_string = '2shOrt'
+# single_string = 'alll0wercase'
+single_string = 'inv4l1d CH4R4CTERS~'
 # product_code_check(single_string)
 
 #The Collatz Conjecture is a famous sequence in mathematics proposed by Lothar Collatz. It proceeds as follows: Start with any number. If the number is even, divide it by 2. If the number is odd, triple it and add one. Repeat. Eventually, no matter what number you begin with, this sequence will converge on 1 (and if you continue repeating it, you'll repeat 1-4-2 infinitely).
